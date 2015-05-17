@@ -1,29 +1,26 @@
 //
-//  DirectorioTableViewController.swift
+//  CalendarioTableViewController.swift
 //  ProyectoTenek
 //
-//  Created by Martha Garcia Contreras on 11/05/15.
+//  Created by Martha Garcia Contreras on 16/05/15.
 //  Copyright (c) 2015 Martha Garcia Contreras. All rights reserved.
 //
 
 import UIKit
 
-class DirectorioTableViewController: UITableViewController, NSXMLParserDelegate {
-    var nombreDepto = [AnyObject]()
-    var jefeDepto = [AnyObject]()
-    var telefonoDepto = [AnyObject]()
-    var correoDepto = [AnyObject]()
+class CalendarioTableViewController: UITableViewController, NSXMLParserDelegate {
+    var descripcionEvento = [AnyObject]()
+    var fechaIni = [AnyObject]()
+    var fechaFin = [AnyObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false;
         [self.cargaInfo()]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    override func viewDidAppear(animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,24 +39,21 @@ class DirectorioTableViewController: UITableViewController, NSXMLParserDelegate 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.nombreDepto.count
+        return descripcionEvento.count
     }
+
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = nombreDepto[indexPath.row] as? String
-        // Configure the cell...
-        
+
+        cell.textLabel?.text = descripcionEvento[indexPath.row] as? String
+        var fi = fechaIni[indexPath.row] as? String
+        var ff = fechaFin[indexPath.row] as? String
+        cell.detailTextLabel?.text = fi! + "-" + ff!
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
     
     var mutableData:NSMutableData  = NSMutableData.alloc()
     var currentElementName : String?
@@ -67,8 +61,8 @@ class DirectorioTableViewController: UITableViewController, NSXMLParserDelegate 
     var connection = NSURLConnection()
     var transicion:Bool = false;
     func cargaInfo(){
-        var soapMessage = "<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><TraeListaDirectorio xmlns='http://tempuri.org/' /></soap:Body></soap:Envelope>"
-        let urlString:String = "http://servicios.tenek.biz/services.asmx?op=TraeListaDirectorio"
+        var soapMessage = "<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><TraeLitaEventos xmlns='http://tempuri.org/' /></soap:Body></soap:Envelope>"
+        let urlString:String = "http://servicios.tenek.biz/Services.asmx?op=TraeLitaEventos"
         var url: NSURL = NSURL(string: urlString)!
         var theRequest = NSMutableURLRequest(URL: url)
         var msgLength = String(count(soapMessage))
@@ -106,10 +100,9 @@ class DirectorioTableViewController: UITableViewController, NSXMLParserDelegate 
         
     }
     func parserDidEndDocument(parser: NSXMLParser) {
-        println (nombreDepto)
-        println (jefeDepto)
-        println (telefonoDepto)
-        println (correoDepto)
+        println (descripcionEvento)
+        println (fechaIni)
+        println (fechaFin)
         tableView.reloadData()
     }
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
@@ -118,60 +111,29 @@ class DirectorioTableViewController: UITableViewController, NSXMLParserDelegate 
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-    
+        
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String?) {
-        if (currentElementName == "NombreDepartamento"){
+        if (currentElementName == "Descripcion"){
             if (string != nil){
-                nombreDepto.insert(string!, atIndex: 0)
+                descripcionEvento.insert(string!, atIndex: 0)
             }
         }
-        else if (currentElementName == "JefeDepartamento"){
+        else if (currentElementName == "FechaInicio"){
             if (string != nil){
-                jefeDepto.insert(string!, atIndex: 0)
+                fechaIni.insert(string!, atIndex: 0)
             }
         }
-        else if (currentElementName == "TelefonoDepartamento"){
+        else if (currentElementName == "FechaFin"){
             if (string != nil){
-                telefonoDepto.insert(string!, atIndex: 0)
+                fechaFin.insert(string!, atIndex: 0)
             }
             
         }
-        else if (currentElementName == "CorreoDepartamento"){
-            if (string != nil){
-                correoDepto.insert(string!, atIndex: 0)
-            }
-        }
-        
         transicion = true;
     }
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            //println (index)
-            var selectedRow : NSIndexPath = tableView.indexPathForSelectedRow()!
-            //selectedRow : NSIndexPath = tableView.indexPathForSelectedRow()
-           // NSIndexPath selectedRowIndex = [self.tableView indexPathForSelectedRow];
-            var detalle = segue.destinationViewController as! Directorio_DetalleViewController
-            detalle.nombreDepto = nombreDepto[selectedRow.row] as? String
-            detalle.nombre = jefeDepto[selectedRow.row] as? String
-            detalle.ext = telefonoDepto[selectedRow.row] as? String
-            detalle.correo = correoDepto[selectedRow.row] as? String
-        }
-    }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        if (!transicion){
-            return false;
-        }
-        
-        return true;
-    }
 
-    
 
     /*
     // Override to support conditional editing of the table view.

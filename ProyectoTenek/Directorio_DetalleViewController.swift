@@ -9,18 +9,31 @@
 import UIKit
 
 class Directorio_DetalleViewController: UIViewController {
+    var correo : String?
+    var ext : String?
+    var puesto : String?
+    var nombre : String?
+    var nombreDepto : String?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
+    @IBOutlet var lblNomDepto: UILabel!
+    @IBOutlet var lblCorreo: UILabel!
+    @IBOutlet var lblExtension: UILabel!
+    @IBOutlet var lblPuesto: UILabel!
+    @IBOutlet var lblNombre: UILabel!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.lblCorreo.text = correo
+        self.lblNomDepto.text = nombreDepto
+        self.lblNombre.text = nombre
+        self.lblPuesto.text = "Manager"
+        self.lblExtension.text = ext
+        // Do any additional setup after loading the view.
+    }
 
     /*
     // MARK: - Navigation
