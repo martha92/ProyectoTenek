@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec14814a6df545a39c2169f6cd5b2401" Name="Diagram1">
+        <EntityTypeShape EntityType="RHTenekModel.Directorio" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Empleado" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Eventos" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Nomina" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Perfil" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Puesto" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Usuario" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RHTenekModel.Vacaciones" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="RHTenekModel.FK_Empleado_Perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="RHTenekModel.FK_Empleado_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="RHTenekModel.FK_Nomina_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="RHTenekModel.FK_Usuario_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="RHTenekModel.FK_Vacaciones_Empleado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

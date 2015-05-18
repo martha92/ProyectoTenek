@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RHTenekModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Directorio">
+    <Key>
+      <PropertyRef Name="DirectorioId" />
+    </Key>
+    <Property Name="DirectorioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDepto" Type="varchar" MaxLength="50" />
+    <Property Name="JefeDepto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TelefonoDepto" Type="varchar" MaxLength="50" />
+    <Property Name="CorreoDepto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="NumeroEmpleado" />
+    </Key>
+    <Property Name="EmpleadoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroEmpleado" Type="int" Nullable="false" />
+    <Property Name="ApellidosEmpleado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombresEmpleado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="IdMensajeria" Type="varchar" MaxLength="50" />
+    <Property Name="PuestoId" Type="int" Nullable="false" />
+    <Property Name="PerfilId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Eventos">
+    <Key>
+      <PropertyRef Name="EventoId" />
+    </Key>
+    <Property Name="EventoId" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFin" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nomina">
+    <Key>
+      <PropertyRef Name="NominaId" />
+    </Key>
+    <Property Name="NominaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Percepciones" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Retenciones" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NumeroEmpleado" Type="int" Nullable="false" />
+    <Property Name="Periodo" Type="date" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="PerfilId" />
+    </Key>
+    <Property Name="PerfilId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="PuestoId" />
+    </Key>
+    <Property Name="PuestoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumeroEmpleado" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vacaciones">
+    <Key>
+      <PropertyRef Name="VacacionesId" />
+    </Key>
+    <Property Name="VacacionesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroEmpleado" Type="int" Nullable="false" />
+    <Property Name="Periodo" Type="int" Nullable="false" />
+    <Property Name="DiasCorrespondientes" Type="int" Nullable="false" />
+    <Property Name="DiasDisponibles" Type="int" Nullable="false" />
+    <Property Name="DiasDisfrutados" Type="int" Nullable="false" />
+    <Property Name="PorcentPrimaVacacional" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="Vencimiento" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Empleado_Perfil">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="PerfilId" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="PuestoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="PuestoId" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="PuestoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nomina_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Nomina" Type="Self.Nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Principal>
+      <Dependent Role="Nomina">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacaciones_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Vacaciones" Type="Self.Vacaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Principal>
+      <Dependent Role="Vacaciones">
+        <PropertyRef Name="NumeroEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RHTenekModelStoreContainer">
+    <EntitySet Name="Directorio" EntityType="Self.Directorio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nomina" EntityType="Self.Nomina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Empleado_Perfil" Association="Self.FK_Empleado_Perfil">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Puesto" Association="Self.FK_Empleado_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nomina_Empleado" Association="Self.FK_Nomina_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Nomina" EntitySet="Nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacaciones_Empleado" Association="Self.FK_Vacaciones_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Vacaciones" EntitySet="Vacaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

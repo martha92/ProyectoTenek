@@ -1,0 +1,15 @@
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.dll.config
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.pdb
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\EntityFramework.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\EntityFramework.xml
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\obj\Release\TenekRH.Services.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\obj\Release\TenekRH.Services.pdb
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.dll.config
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.dll
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\TenekRH.Services.pdb
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\EntityFramework.dll
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\bin\EntityFramework.xml
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\obj\Release\TenekRH.Services.csprojResolveAssemblyReference.cache
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\obj\Release\TenekRH.Services.dll
+C:\Users\e-mdelacruz\OneDrive\Proyectos\Codigos\Tenek\ServiciosRH\TenekRH\TenekRH.Services\obj\Release\TenekRH.Services.pdb

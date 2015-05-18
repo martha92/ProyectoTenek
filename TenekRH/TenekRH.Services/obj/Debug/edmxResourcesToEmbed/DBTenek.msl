@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RHTenekModelStoreContainer" CdmEntityContainer="RHTenekEntities">
+    <EntitySetMapping Name="Directorio">
+      <EntityTypeMapping TypeName="RHTenekModel.Directorio">
+        <MappingFragment StoreEntitySet="Directorio">
+          <ScalarProperty Name="DirectorioId" ColumnName="DirectorioId" />
+          <ScalarProperty Name="NombreDepto" ColumnName="NombreDepto" />
+          <ScalarProperty Name="JefeDepto" ColumnName="JefeDepto" />
+          <ScalarProperty Name="TelefonoDepto" ColumnName="TelefonoDepto" />
+          <ScalarProperty Name="CorreoDepto" ColumnName="CorreoDepto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="RHTenekModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="NumeroEmpleado" ColumnName="NumeroEmpleado" />
+          <ScalarProperty Name="ApellidosEmpleado" ColumnName="ApellidosEmpleado" />
+          <ScalarProperty Name="NombresEmpleado" ColumnName="NombresEmpleado" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdMensajeria" ColumnName="IdMensajeria" />
+          <ScalarProperty Name="PuestoId" ColumnName="PuestoId" />
+          <ScalarProperty Name="PerfilId" ColumnName="PerfilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eventos">
+      <EntityTypeMapping TypeName="RHTenekModel.Eventos">
+        <MappingFragment StoreEntitySet="Eventos">
+          <ScalarProperty Name="EventoId" ColumnName="EventoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nomina">
+      <EntityTypeMapping TypeName="RHTenekModel.Nomina">
+        <MappingFragment StoreEntitySet="Nomina">
+          <ScalarProperty Name="NominaId" ColumnName="NominaId" />
+          <ScalarProperty Name="Percepciones" ColumnName="Percepciones" />
+          <ScalarProperty Name="Retenciones" ColumnName="Retenciones" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="NumeroEmpleado" ColumnName="NumeroEmpleado" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="RHTenekModel.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="PerfilId" ColumnName="PerfilId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="RHTenekModel.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="PuestoId" ColumnName="PuestoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="RHTenekModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NumeroEmpleado" ColumnName="NumeroEmpleado" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacaciones">
+      <EntityTypeMapping TypeName="RHTenekModel.Vacaciones">
+        <MappingFragment StoreEntitySet="Vacaciones">
+          <ScalarProperty Name="VacacionesId" ColumnName="VacacionesId" />
+          <ScalarProperty Name="NumeroEmpleado" ColumnName="NumeroEmpleado" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="DiasCorrespondientes" ColumnName="DiasCorrespondientes" />
+          <ScalarProperty Name="DiasDisponibles" ColumnName="DiasDisponibles" />
+          <ScalarProperty Name="DiasDisfrutados" ColumnName="DiasDisfrutados" />
+          <ScalarProperty Name="PorcentPrimaVacacional" ColumnName="PorcentPrimaVacacional" />
+          <ScalarProperty Name="Vencimiento" ColumnName="Vencimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

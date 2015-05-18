@@ -1,0 +1,8 @@
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\bin\Debug\TenekRH.BusinessObjects.dll.config
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\bin\Debug\TenekRH.BusinessObjects.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\bin\Debug\TenekRH.BusinessObjects.pdb
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\bin\Debug\EntityFramework.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\bin\Debug\EntityFramework.xml
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\obj\Debug\TenekRH.BusinessObjects.csprojResolveAssemblyReference.cache
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\obj\Debug\TenekRH.BusinessObjects.dll
+C:\Proyectos\Tenek\ServiciosRH\TenekRH\TenekRH.BusinessObjects\obj\Debug\TenekRH.BusinessObjects.pdb
