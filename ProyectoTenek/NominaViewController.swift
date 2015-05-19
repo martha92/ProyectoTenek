@@ -76,13 +76,13 @@ class NominaViewController: UIViewController, NSXMLParserDelegate {
         if (connection == true) {
             var mutableData : Void = NSMutableData.initialize()
         }
-        else{
+        /*else{
             let alertController = UIAlertController(title: "Error!", message:
                 "Ocurrio un error al realizar la consulta", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
-        }
+        }*/
         
     }
     
